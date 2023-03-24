@@ -1,0 +1,49 @@
+.header {
+
+  width: 100%;
+  background-color: #f1f5f9;
+  color:#64748B;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 20px;
+  box-shadow: 0 2px 8px rgba(177, 177, 177, 0.25);
+}
+.logo {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+}
+.laravel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.username {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.search {
+  display: flex;
+  align-items: center;
+}
+label {
+  padding-top: 5px;
+}
+input {
+  border-radius: 10px;
+  padding: 5px 20px 5px 20px;
+  border: none;
+  background-color: #e7ecf2;
+}
+.icon {
+  padding: 5px 20px 0 0;
+}
+.firstSearch{
+  height: 1.5em;
+  color: gray;
+  position: absolute;
+}

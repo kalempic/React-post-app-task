@@ -1,0 +1,42 @@
+.tab{
+    width: 100%;
+    background-color:rgb(211, 207, 207,0.25);
+    opacity: 0.7;
+   
+}
+
+.user{
+   display: flex;
+   margin-bottom: 10px;
+   position: relative;
+  
+}
+
+
+/* .createUser{
+    background-color: #0EA5E9;
+    color: white;
+    position: absolute;
+    right: 0;
+    margin-top: 10px;
+    padding: 5px;
+    border: 0px;
+    border-radius: 5px;
+} */
+.icon{
+    height: 1.5em;
+    padding-top: 5px;
+    color: gray;
+    position: absolute;
+  
+}
+.userWrap{
+    width: 1000px;
+    padding: 20px 25px;
+    margin-top: 200px;
+    
+   
+}
+.searchInput{
+    margin-bottom: 10px;
+}

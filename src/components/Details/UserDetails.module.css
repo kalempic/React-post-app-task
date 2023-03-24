@@ -1,0 +1,12 @@
+.imgUser{
+width: 50%;
+border-radius: 100px;
+}
+.userForm{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.avatar{
+    display: flex;
+}
