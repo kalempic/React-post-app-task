@@ -1,0 +1,10 @@
+.icon {
+  height: 1.5em;
+  padding-top: 5px;
+  color: gray;
+  position: absolute;
+}
+.userWrap {
+  padding: 20px 25px;
+  height: 100%;
+}

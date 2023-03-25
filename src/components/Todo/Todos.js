@@ -1,8 +1,8 @@
 import Todo from "./Todo";
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 // import { useLocation } from "react-router-dom";
 
-const Todos=(props)=>{
+const Todos = (props) => {
   const [todosList, setTodosList] = useState();
   // const location = useLocation();
 
@@ -13,10 +13,11 @@ const Todos=(props)=>{
 
   useEffect(() => {
     getTodosList();
+    // eslint-disable-next-line
   }, []);
 
-    return(
-        <table>
+  return (
+    <table>
       <thead>
         <tr>
           <th>ID</th>
@@ -25,18 +26,18 @@ const Todos=(props)=>{
         </tr>
       </thead>
       <tbody>
-      {todosList &&
-            todosList.map((todo) => (
-              <Todo
+        {todosList &&
+          todosList.map((todo) => (
+            <Todo
               key={todo.id}
               id={todo.id}
               title={todo.title}
               completed={todo.completed}
             />
-            ))}
+          ))}
       </tbody>
     </table>
-    )
+  );
 };
 
 export default Todos;

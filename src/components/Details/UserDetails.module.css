@@ -1,12 +1,30 @@
-.imgUser{
-width: 50%;
-border-radius: 100px;
+.imgUser {
+  width: 50px;
+  border-radius: 100px;
 }
-.userForm{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.userForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
 }
-.avatar{
-    display: flex;
+
+.userForm > div {
+  display: flex;
+  border-bottom: 1px gray solid;
+  padding: 20px;
+}
+
+.userForm > div:last-child {
+    border-bottom: none;
+  }
+
+.userForm > div > p:first-child {
+    width: 100px;
+}
+
+.avatar {
+  display: flex;
 }

@@ -1,15 +1,27 @@
-import UserImg from "../../assets/user.png"
-import classes from "./UserDetails.module.css"
+import UserImg from "../../assets/user.png";
+import classes from "./UserDetails.module.css";
 
-const UserDetails=(props)=>{
-    return(<div className={classes.userForm}>
-        <div><span className={classes.avatar}>Avatar:</span><img src={UserImg} className={classes.imgUser}></img></div>
-        <div><span>Name:</span>
-            {props.user.name}
-        </div>
-        <div><span>UserId:</span>{props.user.id}</div>
-        <div><span>Email:</span>{props.user.email}</div>
-    </div>)
-}
+const UserDetails = (props) => {
+  return (
+    <div className={classes.userForm}>
+      <div>
+        <p className={classes.avatar}>Avatar:</p>
+        <img src={UserImg} className={classes.imgUser}></img>
+      </div>
+      <div>
+        <p>Name:</p>
+        <p>{props.user.name}</p>
+      </div>
+      <div>
+        <p>UserId:</p>
+        <p>{props.user.id}</p>
+      </div>
+      <div>
+        <p>Email:</p>
+        <p>{props.user.email}</p>
+      </div>
+    </div>
+  );
+};
 
 export default UserDetails;

@@ -1,12 +1,9 @@
-import UserDetails from "../Details/UserDetails";
-import Posts from "../Details/Posts";
-import { Fragment, useEffect, useState } from "react";
+import UserDetails from "../../components/Details/UserDetails";
+import Posts from "../../components/Details/Posts";
+import React, { useEffect, useState } from "react";
 import axiosInstance from "../../axios/axios";
 import { useLocation, useNavigate } from "react-router-dom";
-import Header from "../Layout/Header";
-import Footer from "../Layout/Footer";
-import Dashboard from "../Layout/SideMenu";
-import Todos from "../Users/Todos";
+import Todos from "../../components/Todo/Todos";
 
 const UserPage = () => {
   const [userDetails, setUserDetails] = useState();
@@ -49,20 +46,16 @@ const UserPage = () => {
     getUserDetails();
     getPosts();
     getTodos();
+    // eslint-disable-next-line
   }, []);
 
   return (
-    <Fragment>
-      <Header />
-      <Dashboard />
-      <div className="wrapperUser">
-        {userDetails && <UserDetails user={userDetails} />}
-        {posts && <Posts posts={posts} />}
-        <button onClick={() => navigateToCreatePost()}>Create post</button>
-        {todos && <Todos todos={todos} />}
-      </div>
-      <Footer />
-    </Fragment>
+    <div className="wrapperUser">
+      {userDetails && <UserDetails user={userDetails} />}
+      {posts && <Posts posts={posts} />}
+      <button onClick={navigateToCreatePost}>Create post</button>
+      {todos && <Todos todos={todos} />}
+    </div>
   );
 };
 
