@@ -1,31 +1,34 @@
-import { useEffect } from "react";
 import ReactDOM from "react-dom";
-// import "./modalStyles.css";
+import { Fragment } from "react";
+import classes from "./Modal.module.css";
 
-function Modal({ isOpen, handleClose }) {
-  useEffect(() => {
-    const closeOnEscapeKey = (e) => (e.key === "Escape" ? handleClose() : null);
-    document.body.addEventListener("keydown", closeOnEscapeKey);
-    return () => {
-      document.body.removeEventListener("keydown", closeOnEscapeKey);
-    };
-  }, [handleClose]);
+const Backdrop = (props) => {
+  return <div className={classes.backdrop} onClick={props.onClose} />;
+};
 
-  if (!isOpen) return null;
-
+const ModalOverlay = (props) => {
   return (
-    <>
-      {ReactDOM.createPortal(
-        <div className="modal">
-          <button onClick={handleClose} className="close-btn">
-            Close
-          </button>
-          <div className="modal-content">Modal!</div>
-        </div>,
-        document.getElementById("modal")
-      )}
-    </>
+    <div className={classes.modal}>
+      <div className={classes.content}>{props.children}</div>
+    </div>
   );
-}
+};
+
+const portalElement = document.getElementById("overlays");
+
+const Modal = (props) => {
+  return (
+    <Fragment>
+      {ReactDOM.createPortal(
+        <Backdrop onClose={props.onClose} />,
+        portalElement
+      )}
+      {ReactDOM.createPortal(
+        <ModalOverlay>{props.children}</ModalOverlay>,
+        portalElement
+      )}
+    </Fragment>
+  );
+};
 
 export default Modal;

@@ -4,11 +4,13 @@ import React, { useEffect, useState } from "react";
 import axiosInstance from "../../axios/axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import Todos from "../../components/Todo/Todos";
+import CreatePost from "../../components/Details/CreatePost";
 
 const UserPage = () => {
   const [userDetails, setUserDetails] = useState();
   const [posts, setPosts] = useState();
   const [todos, setTodos] = useState();
+  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigation = useNavigate();
 
@@ -38,8 +40,12 @@ const UserPage = () => {
     console.log(responseTodos);
   };
 
-  const navigateToCreatePost = () => {
-    navigation(`/createpost`, { state: { userId: location.state.userId } });
+  const showModalHandler = () => {
+    setIsOpen(true);
+  };
+
+  const hideModalHandler = () => {
+    setIsOpen(false);
   };
 
   useEffect(() => {
@@ -53,8 +59,9 @@ const UserPage = () => {
     <div className="wrapperUser">
       {userDetails && <UserDetails user={userDetails} />}
       {posts && <Posts posts={posts} />}
-      <button onClick={navigateToCreatePost}>Create post</button>
+      <button onClick={showModalHandler}>Create post</button>
       {todos && <Todos todos={todos} />}
+      {isOpen && <CreatePost onClose={hideModalHandler}/>}
     </div>
   );
 };
