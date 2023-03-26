@@ -75,8 +75,7 @@ const UserPage = () => {
       <button onClick={showModalHandler}>Create post</button>
       {todos && <Todos todos={todos} />}
       {isOpen && <CreatePost onClose={hideModalHandler}/>}
-      {isEdit && <EditPost onClose={hideEditModalHandler} postID={editPostID}/>}
-
+      {isEdit && editPostID && <EditPost onClose={hideEditModalHandler} postID={editPostID}/>}
     </div>
   );
 };
