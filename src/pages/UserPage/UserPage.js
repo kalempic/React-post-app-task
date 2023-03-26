@@ -5,14 +5,16 @@ import axiosInstance from "../../axios/axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import Todos from "../../components/Todo/Todos";
 import CreatePost from "../../components/Details/CreatePost";
+import EditPost from "../../components/Details/EditPost";
 
 const UserPage = () => {
   const [userDetails, setUserDetails] = useState();
   const [posts, setPosts] = useState();
   const [todos, setTodos] = useState();
   const [isOpen, setIsOpen] = useState(false);
+  const [isEdit, setIsEditOpen] = useState(false);
+  const [editPostID, setEditPostID] = useState();
   const location = useLocation();
-  const navigation = useNavigate();
 
   const getUserDetails = async () => {
     if (!location.state) return;
@@ -48,6 +50,17 @@ const UserPage = () => {
     setIsOpen(false);
   };
 
+  const hideEditModalHandler = () => {
+    setIsEditOpen(false);
+  };
+
+  const editPostIDHandler = (postID) => {
+    setEditPostID(postID);
+    setIsEditOpen(true);
+  };
+
+  
+
   useEffect(() => {
     getUserDetails();
     getPosts();
@@ -58,10 +71,12 @@ const UserPage = () => {
   return (
     <div className="wrapperUser">
       {userDetails && <UserDetails user={userDetails} />}
-      {posts && <Posts posts={posts} />}
+      {posts && <Posts posts={posts}  onSetEditPostID = {editPostIDHandler} />}
       <button onClick={showModalHandler}>Create post</button>
       {todos && <Todos todos={todos} />}
       {isOpen && <CreatePost onClose={hideModalHandler}/>}
+      {isEdit && <EditPost onClose={hideEditModalHandler} postID={editPostID}/>}
+
     </div>
   );
 };

@@ -18,9 +18,6 @@ const App = () => (
       <Routes>
         <Route exact path={"/"} element={<MainPage />} />
         <Route exact path={"user/:id"} element={<UserPage />} />
-        {/* <Route exact path={"/createpost"} element={<CreatePost />} />
-        <Route exact path={"/editpost/:id"} element={<EditPost />} /> */}
-        {/* <Route element={<ErrorPage />} /> */}
       </Routes>
     </div>
     <Footer />
