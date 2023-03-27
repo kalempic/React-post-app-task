@@ -1,3 +1,15 @@
 .cancel{
     border: none;
 }
+.editField{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.btnGroup{
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-end;
+    gap: 20px;
+    
+}

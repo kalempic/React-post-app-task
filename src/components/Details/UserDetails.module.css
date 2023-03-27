@@ -14,7 +14,7 @@
 
 .userForm > div {
   display: flex;
-  border-bottom: 1px gray solid;
+  border-bottom: 1px  #94A3B8 solid;
   padding: 20px;
 }
 

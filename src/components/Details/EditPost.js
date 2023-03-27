@@ -35,7 +35,7 @@ const EditPost = (props) => {
 
   return (
     <Modal onClose={props.onClose}>
-      <form>
+      <form className={classes.editField}>
         <div>
           <label>Title</label>
           <input
@@ -52,8 +52,10 @@ const EditPost = (props) => {
             onChange={(event) => setPostContent(event.target.value)}
           ></input>
         </div>
+        <div className={classes.btnGroup}>
         <button className={classes.cancel}onClick={props.onClose}>Cancel</button>
         <button onClick={(event) => savePost(event)}>Edit post</button>
+        </div>
       </form>
     </Modal>
   );

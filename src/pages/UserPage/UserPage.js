@@ -70,6 +70,7 @@ const UserPage = () => {
   }, []);
 
   return (
+    <div className={classes.centerContent}>
     <div className="wrapperUser">
       {userDetails && <UserDetails user={userDetails} />}
       {posts && <Posts posts={posts}  onSetEditPostID = {editPostIDHandler} />}
@@ -77,6 +78,7 @@ const UserPage = () => {
       {todos && <Todos todos={todos} />}
       {isOpen && <CreatePost onClose={hideModalHandler}/>}
       {isEdit && editPostID && <EditPost onClose={hideEditModalHandler} postID={editPostID}/>}
+    </div>
     </div>
   );
 };

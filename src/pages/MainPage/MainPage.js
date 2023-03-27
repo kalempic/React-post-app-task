@@ -23,6 +23,7 @@ const MainPage = () => {
   };
   return (
     <div className="wrapper">
+    <img className={classes.cardsImg} src={require('../../assets/Cards.png')}/>
       <div className={classes.userWrap}>
         <h2>Users</h2>
         <SearchBar getSearchTerm={getSearchTerm} />
