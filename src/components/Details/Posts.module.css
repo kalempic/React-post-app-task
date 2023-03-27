@@ -1,5 +1,25 @@
 .tablePosts{
         width: 100%;
-        background-color:rgb(211, 207, 207,0.25);
-        opacity: 0.7;    
+        background-color:white;
+        color: #64748B;
+        border-radius: 10px;
 }
+.edit{
+        background-color: #39903a;
+        color: white;
+        padding: 10px 17px;
+        border: 0px;
+        border-radius: 5px;
+      }
+.delete{
+        background-color: #e8254f;
+        color: white;
+        padding: 10px;
+        border: 0px;
+        border-radius: 5px;
+      }
+.managePost{
+        display:flex;
+        gap:10px;
+      }
+      

@@ -1,13 +1,12 @@
-import Todo from "./Todo";
 import { useState, useEffect } from "react";
-// import { useLocation } from "react-router-dom";
+import Todo from "./Todo";
+import classes from "./Todos.module.css"
+
 
 const Todos = (props) => {
   const [todosList, setTodosList] = useState();
-  // const location = useLocation();
 
   const getTodosList = async () => {
-    // if (!location.state) return;
     setTodosList(props.todos);
   };
 
@@ -17,7 +16,7 @@ const Todos = (props) => {
   }, []);
 
   return (
-    <table>
+    <table className={classes.todoTable}>
       <thead>
         <tr>
           <th>ID</th>

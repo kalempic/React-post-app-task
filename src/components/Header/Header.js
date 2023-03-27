@@ -5,6 +5,7 @@ import avatarImg from "../../assets/avatar.png";
 import classes from "./Header.module.css";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { AiOutlineSearch } from "react-icons/ai";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Header = (props) => {
   const navigation = useNavigate();
@@ -18,10 +19,11 @@ const Header = (props) => {
           <img src={logoImage} alt="Laravel logo" />
           <h3>Laravel Nova</h3>
         </div>
-        <label className={classes.search}>
+        {/* <label className={classes.search}>
           <AiOutlineSearch className={classes.firstSearch} />
           <input type="text" placeholder="Press / to search"></input>
-        </label>
+        </label> */}
+        <SearchBar/>
       </div>
 
       <div className={classes.username}>

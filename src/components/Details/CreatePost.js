@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Modal from "../../components/Modal/Modal";
 import axiosInstance from "../../axios/axios";
 
 const CreatePost = (props) => {
-  const navigate = useNavigate();
   const location = useLocation();
   const [postTitle, setPostTitle] = useState("");
   const [postContent, setPostContent] = useState("");

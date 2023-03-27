@@ -1,5 +1,5 @@
 .imgUser {
-  width: 50px;
+  width: 80px;
   border-radius: 100px;
 }
 .userForm {
@@ -9,6 +9,7 @@
   width: 100%;
   background-color: white;
   border-radius: 10px;
+  color: #64748B;
 }
 
 .userForm > div {

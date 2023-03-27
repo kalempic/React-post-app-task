@@ -2,10 +2,11 @@ import UserDetails from "../../components/Details/UserDetails";
 import Posts from "../../components/Details/Posts";
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../../axios/axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Todos from "../../components/Todo/Todos";
 import CreatePost from "../../components/Details/CreatePost";
 import EditPost from "../../components/Details/EditPost";
+import classes from "./UserPage.module.css"
 
 const UserPage = () => {
   const [userDetails, setUserDetails] = useState();
@@ -72,7 +73,7 @@ const UserPage = () => {
     <div className="wrapperUser">
       {userDetails && <UserDetails user={userDetails} />}
       {posts && <Posts posts={posts}  onSetEditPostID = {editPostIDHandler} />}
-      <button onClick={showModalHandler}>Create post</button>
+      <button className={classes.button} onClick={showModalHandler}>Create post</button>
       {todos && <Todos todos={todos} />}
       {isOpen && <CreatePost onClose={hideModalHandler}/>}
       {isEdit && editPostID && <EditPost onClose={hideEditModalHandler} postID={editPostID}/>}

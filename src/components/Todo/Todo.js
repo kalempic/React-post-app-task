@@ -4,7 +4,7 @@ const Todo=(props)=>{
     <tr>
     <td>{props.id}</td>
     <td>{props.title}</td>
-    <td>{props.completed? 'true': 'false'}</td>
+<td>{props.completed? <img src={require('../../assets/true.png')}/>: <img src={require('../../assets/false.png')}/>}</td>
 </tr>
     )
 };

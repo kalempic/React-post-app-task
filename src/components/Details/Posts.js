@@ -15,6 +15,7 @@ const Posts = (props) => {
 
   useEffect(() => {
     getPostsList();
+    //eslint-disable-next-line
   }, []);
 
   const handleDelete = async (deletedPostID) => {

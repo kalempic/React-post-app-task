@@ -26,7 +26,7 @@ const SearchBar = ({ button, getSearchTerm }) => {
           onChange={handleSearch}
         />
       </div>
-      {button && <Button content="search!" />}
+      {/* {button && <Button content="search!" />} */}
     </form>
   );
 };

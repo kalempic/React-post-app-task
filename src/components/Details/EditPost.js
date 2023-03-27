@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Modal from "../../components/Modal/Modal";
 import axiosInstance from "../../axios/axios";
+import classes from "./EditPost.module.css"
 
 const EditPost = (props) => {
   const [postTitle, setPostTitle] = useState("");
@@ -29,6 +30,7 @@ const EditPost = (props) => {
 
   useEffect(() => {
     getPost();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -50,7 +52,7 @@ const EditPost = (props) => {
             onChange={(event) => setPostContent(event.target.value)}
           ></input>
         </div>
-        <button onClick={props.onClose}>Cancel</button>
+        <button className={classes.cancel}onClick={props.onClose}>Cancel</button>
         <button onClick={(event) => savePost(event)}>Edit post</button>
       </form>
     </Modal>

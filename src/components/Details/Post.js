@@ -1,23 +1,19 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import classes from "./Posts.module.css";
 
-const Post=(props)=>{
-
-// const navigate = useNavigate();
-const location= useLocation(); 
-// const navigateToEditPost=(postId)=>{
-//     if(!location.state) return;
-//     navigate(`/editpost/${postId}`,{state:{postId:postId,userId:location.state.userId}});
-// }
-return(
+const Post = (props) => {
+  return (
     <tr>
-        <td>{props.id}</td>
-        <td>{props.title}</td>
-        <td> <div>
-            <button onClick={()=> props.onSetEditPostID(props.id)}>Edit</button>
-            <button onClick={() => props.onDelete(props.id)}>Delete</button>
-            </div></td>
+      <td>{props.id}</td>
+      <td>{props.title}</td>
+      <td>
+        {" "}
+        <div className={classes.managePost}>
+          <button className={classes.edit} onClick={() => props.onSetEditPostID(props.id)}>Edit</button>
+          <button className={classes.delete} onClick={() => props.onDelete(props.id)}>Delete</button>
+        </div>
+      </td>
     </tr>
-)
+  );
 };
 
 export default Post;

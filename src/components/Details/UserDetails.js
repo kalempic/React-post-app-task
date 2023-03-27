@@ -6,7 +6,7 @@ const UserDetails = (props) => {
     <div className={classes.userForm}>
       <div>
         <p className={classes.avatar}>Avatar:</p>
-        <img src={UserImg} className={classes.imgUser}></img>
+        <img src={UserImg} className={classes.imgUser} alt="User"></img>
       </div>
       <div>
         <p>Name:</p>
