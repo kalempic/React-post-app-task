@@ -1,15 +1,39 @@
-.cancel{
+.cancelBtn, .editBtn{
     border: none;
+    padding: 10px 30px;
+    border-radius: 10px;
+    
+}
+.editBtn{
+background-color: #0EA5E9;
+color: white;
 }
 .editField{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 0 30px;
 }
 .btnGroup{
     display: flex;
     flex-direction:row;
     justify-content: flex-end;
     gap: 20px;
+    padding: 40px 90px;
+   
+}
+.editInput{
+   width:52%;
+   padding: 10px;
+   margin: 0 20px;
+}
+
+.contentInput{
+width: 50%;
+border: none;
+margin: 0 20px;
+overflow: hidden;
+background-color: #e7ecf2;
+border-radius: 10px;
     
 }
