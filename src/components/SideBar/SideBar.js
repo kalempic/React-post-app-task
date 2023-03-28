@@ -10,12 +10,12 @@ const SideBar = (props) => {
   return (
     <div className={classes.wrapper}>
       <div
-        style={{ display: "flex", justifyContent: "space-between" }}
+       className={classes.dashMenu}
         onClick={setOpenDashboardSubmenu.bind(this, !openDashboardSubmenu)}
       >
-        <a>
-          {" "}
-          <RxDashboard />
+         <img className={classes.dashImg} src={require('../../assets/dashboardpic.png')}
+         />
+         <a>
           Dashboard
         </a>
       </div>
@@ -25,15 +25,12 @@ const SideBar = (props) => {
           <a href="#">User Insights</a>
         </div>
       )}
-      <div
-        style={{ display: "flex", justifyContent: "space-between" }}
+      <div className={classes.dashMenu}
         onClick={setOpenResourcesSubmenu.bind(this, !openResourcesSubmenu)}
       >
-        <a>
-          {" "}
-          <CgSize size={"21px"} style={{ transform: "rotate(90deg)" }} />
+        <img className={classes.dashImg}src={require('../../assets/resourcespic.png')}/><a>
           Resources
-        </a>
+        </a> 
       </div>
       {openResourcesSubmenu && (
         <div className={classes.submenuWrapper}>

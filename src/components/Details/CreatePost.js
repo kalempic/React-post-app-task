@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import Modal from "../../components/Modal/Modal";
 import axiosInstance from "../../axios/axios";
+import classes from "./CreatePost.module.css";
 
 const CreatePost = (props) => {
   const location = useLocation();
@@ -24,27 +25,28 @@ const CreatePost = (props) => {
 
   return (
     <Modal onClose={props.onClose}>
-      <form>
-        <div>
+      <form className={classes.editCreateField}>
+        <div className={classes.createTitle}>
           <label>Title</label>
           <input
+            className={classes.editCreateInput}
             onChange={(event) => setPostTitle(event.target.value)}
             type="text"
           ></input>
         </div>
-        <div>
+        <div className={classes.createContent}>
           <label>Content</label>
-          <input
+          <textarea
+            className={classes.contentCreateInput}
             type="text"
             onChange={(event) => setPostContent(event.target.value)}
-          ></input>
+            rows="8" cols="50"
+          ></textarea>
         </div>
-        <button
-          onClick={props.onClose}
-        >
-          Cancel
-        </button>
-        <button onClick={(event) => savePost(event)}>Save post</button>
+        <div className={classes.btnCreateGroup}>
+        <button className={classes.cancelCreateBtn} onClick={props.onClose}>Cancel</button>
+        <button className={classes.saveBtn} onClick={(event) => savePost(event)}>Save post</button>
+        </div>
       </form>
     </Modal>
   );

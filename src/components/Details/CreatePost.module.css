@@ -1,41 +1,40 @@
-.cancelBtn, .editBtn{
+.cancelCreateBtn, .saveBtn{
     border: none;
     padding: 10px 30px;
     border-radius: 10px;
     color: #64748B;;
     
 }
-.editBtn{
+.saveBtn{
 background-color: #0EA5E9;
 color: white;
 }
-.editField{
+.editCreateField{
     display: block;
     max-width: 900px;
     margin:0 auto;
 }
-.btnGroup{
+.btnCreateGroup{
     display: flex;
     flex-direction:row;
     justify-content: flex-end;
     gap: 20px;
     padding: 40px 0px;
 }
-.title{
+.createTitle{
     display: flex;
     margin-bottom: 40px;
     color:#64748B;
 }
-.editInput, .contentInput{
+.editCreateInput, .contentCreateInput{
     width: 100%;
     overflow: hidden;
     background-color: white;
     border: 1px solid #CBD5E1;
     color:#64748B; ;
     border-radius:5px ;
-    padding: 10px 20px 10px 7px;
 }
-.content{
+.createContent{
     display: flex;
     color:#64748B; ;
 }

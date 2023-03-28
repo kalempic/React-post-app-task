@@ -36,7 +36,7 @@ const EditPost = (props) => {
   return (
     <Modal onClose={props.onClose}>
       <form className={classes.editField}>
-        <div>
+        <div className={classes.title}>
           <label>Title:</label>
           <input
           className={classes.editInput}
@@ -45,17 +45,18 @@ const EditPost = (props) => {
             type="text"
           ></input>
         </div>
-        <div>
+        <div className={classes.content}>
           <label>Content:</label>
           <textarea
           className={classes.contentInput}
             value={postContent ? postContent : ""}
             type="text"
             onChange={(event) => setPostContent(event.target.value)}
+            rows="8" cols="50"
           ></textarea>
         </div>
         <div className={classes.btnGroup}>
-        <button className={classes.cancelBtn}onClick={props.onClose}>Cancel</button>
+        <button className={classes.cancelBtn} onClick={props.onClose}>Cancel</button>
         <button className={classes.editBtn} onClick={(event) => savePost(event)}>Edit post</button>
         </div>
       </form>
