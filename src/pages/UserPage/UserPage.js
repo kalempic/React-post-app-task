@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import Todos from "../../components/Todo/Todos";
 import CreatePost from "../../components/Details/CreatePost";
 import EditPost from "../../components/Details/EditPost";
-import classes from "./UserPage.module.css"
+import classes from "./UserPage.module.css";
 
 const UserPage = () => {
   const [userDetails, setUserDetails] = useState();
@@ -60,8 +60,6 @@ const UserPage = () => {
     setIsEditOpen(true);
   };
 
-  
-
   useEffect(() => {
     getUserDetails();
     getPosts();
@@ -71,14 +69,18 @@ const UserPage = () => {
 
   return (
     <div className={classes.centerContent}>
-    <div className="wrapperUser">
-      {userDetails && <UserDetails user={userDetails} />}
-      {posts && <Posts posts={posts}  onSetEditPostID = {editPostIDHandler} />}
-      <button className={classes.button} onClick={showModalHandler}>Create post</button>
-      {todos && <Todos todos={todos} />}
-      {isOpen && <CreatePost onClose={hideModalHandler}/>}
-      {isEdit && editPostID && <EditPost onClose={hideEditModalHandler} postID={editPostID}/>}
-    </div>
+      <div className="wrapperUser">
+        {userDetails && <UserDetails user={userDetails} />}
+        {posts && <Posts posts={posts} onSetEditPostID={editPostIDHandler} />}
+        <button className={classes.button} onClick={showModalHandler}>
+          Create post
+        </button>
+        {todos && <Todos todos={todos} />}
+        {isOpen && <CreatePost onClose={hideModalHandler} />}
+        {isEdit && editPostID && (
+          <EditPost onClose={hideEditModalHandler} postID={editPostID} />
+        )}
+      </div>
     </div>
   );
 };

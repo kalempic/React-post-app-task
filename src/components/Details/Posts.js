@@ -41,7 +41,7 @@ const Posts = (props) => {
                 id={post.id}
                 title={post.title}
                 onDelete={handleDelete}
-                onSetEditPostID = {props.onSetEditPostID}
+                onSetEditPostID={props.onSetEditPostID}
               />
             ))}
         </tbody>

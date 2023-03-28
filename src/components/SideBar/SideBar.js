@@ -1,7 +1,5 @@
 import { useState } from "react";
 import classes from "./SideBar.module.css";
-import { RxDashboard } from "react-icons/rx";
-import { CgSize } from "react-icons/cg";
 
 const SideBar = (props) => {
   const [openDashboardSubmenu, setOpenDashboardSubmenu] = useState(false);
@@ -10,14 +8,15 @@ const SideBar = (props) => {
   return (
     <div className={classes.wrapper}>
       <div
-       className={classes.dashMenu}
+        className={classes.dashMenu}
         onClick={setOpenDashboardSubmenu.bind(this, !openDashboardSubmenu)}
       >
-         <img className={classes.dashImg} src={require('../../assets/dashboardpic.png')}
-         />
-         <a>
-          Dashboard
-        </a>
+        <img
+          className={classes.dashImg}
+          src={require("../../assets/dashboardpic.png")}
+          alt="dash icon"
+        />
+        <a>Dashboard</a>
       </div>
       {openDashboardSubmenu && (
         <div className={classes.submenuWrapper}>
@@ -25,12 +24,16 @@ const SideBar = (props) => {
           <a href="#">User Insights</a>
         </div>
       )}
-      <div className={classes.dashMenu}
+      <div
+        className={classes.dashMenu}
         onClick={setOpenResourcesSubmenu.bind(this, !openResourcesSubmenu)}
       >
-        <img className={classes.dashImg}src={require('../../assets/resourcespic.png')}/><a>
-          Resources
-        </a> 
+        <img
+          className={classes.dashImg}
+          src={require("../../assets/resourcespic.png")}
+          alt="resource icon"
+        />
+        <a>Resources</a>
       </div>
       {openResourcesSubmenu && (
         <div className={classes.submenuWrapper}>

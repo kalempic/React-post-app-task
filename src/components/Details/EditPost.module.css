@@ -1,45 +1,46 @@
-.cancelBtn, .editBtn{
-    border: none;
-    padding: 10px 30px;
-    border-radius: 10px;
-    color: #64748B;;
-    
+.cancelBtn,
+.editBtn {
+  border: none;
+  padding: 10px 30px;
+  border-radius: 10px;
+  color: #64748b;
 }
-.editBtn{
-background-color: #0EA5E9;
-color: white;
+.editBtn {
+  background-color: #0ea5e9;
+  color: white;
 }
-.editField{
-    display: block;
-    max-width: 900px;
-    margin:0 auto;
+.editField {
+  display: block;
+  max-width: 900px;
+  margin: 0 auto;
 }
-.btnGroup{
-    display: flex;
-    flex-direction:row;
-    justify-content: flex-end;
-    gap: 20px;
-    padding: 40px 0px;
+.btnGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 40px 0px;
 }
-.title{
-    display: flex;
-    margin-bottom: 40px;
-    color:#64748B;
+.title {
+  display: flex;
+  margin-bottom: 40px;
+  color: #64748b;
 }
-.editInput, .contentInput{
-    width: 100%;
-    overflow: hidden;
-    background-color: white;
-    border: 1px solid #CBD5E1;
-    color:#64748B; ;
-    border-radius:5px ;
-    padding: 10px 20px 10px 7px;
+.editInput,
+.contentInput {
+  width: 100%;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid #cbd5e1;
+  color: #64748b;
+  border-radius: 5px;
+  padding: 10px 20px 10px 7px;
 }
-.content{
-    display: flex;
-    color:#64748B; ;
+.content {
+  display: flex;
+  color: #64748b;
 }
 
-label{
-    min-width:100px;
+label {
+  min-width: 100px;
 }

@@ -3,7 +3,6 @@ import classes from "./UserDetails.module.css";
 
 const UserDetails = (props) => {
   return (
-  
     <div className={classes.userForm}>
       <div>
         <p className={classes.avatar}>Avatar:</p>
@@ -22,7 +21,6 @@ const UserDetails = (props) => {
         <p>{props.user.email}</p>
       </div>
     </div>
-    
   );
 };
 

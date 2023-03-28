@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import Button from "../Button/Button";
 
 import classes from "./SearchBar.module.css";
 
 const SearchBar = ({ button, getSearchTerm }) => {
-  // const { button, getSearchTerm } = props;
   const [searchTerm, setSearch] = useState("");
 
   const handleSearch = (event) => {
@@ -15,7 +13,6 @@ const SearchBar = ({ button, getSearchTerm }) => {
     event.preventDefault();
     getSearchTerm(searchTerm);
   };
-
   return (
     <form className={classes.container} onSubmit={handleSubmit}>
       <div className={classes.inputWrapper}>
@@ -26,7 +23,6 @@ const SearchBar = ({ button, getSearchTerm }) => {
           onChange={handleSearch}
         />
       </div>
-      {/* {button && <Button content="search!" />} */}
     </form>
   );
 };

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Todo from "./Todo";
-import classes from "./Todos.module.css"
-
+import classes from "./Todos.module.css";
 
 const Todos = (props) => {
   const [todosList, setTodosList] = useState();

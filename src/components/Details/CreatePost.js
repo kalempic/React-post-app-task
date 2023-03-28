@@ -40,12 +40,20 @@ const CreatePost = (props) => {
             className={classes.contentCreateInput}
             type="text"
             onChange={(event) => setPostContent(event.target.value)}
-            rows="8" cols="50"
+            rows="8"
+            cols="50"
           ></textarea>
         </div>
         <div className={classes.btnCreateGroup}>
-        <button className={classes.cancelCreateBtn} onClick={props.onClose}>Cancel</button>
-        <button className={classes.saveBtn} onClick={(event) => savePost(event)}>Save post</button>
+          <button className={classes.cancelCreateBtn} onClick={props.onClose}>
+            Cancel
+          </button>
+          <button
+            className={classes.saveBtn}
+            onClick={(event) => savePost(event)}
+          >
+            Save post
+          </button>
         </div>
       </form>
     </Modal>

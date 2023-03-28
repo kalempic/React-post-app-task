@@ -1,13 +1,14 @@
 .tab {
   width: 100%;
   background-color: white;
-  border: 1px solid #CBD5E1;
+  border: 1px solid #cbd5e1;
   border-radius: 10px;
-  color: #64748B;
+  color: #64748b;
 }
-th,td{
-  padding: 10px 70px ;
-  border-bottom: 1px solid #CBD5E1;
+th,
+td {
+  padding: 10px 70px;
+  border-bottom: 1px solid #cbd5e1;
   text-align: left;
 }
 

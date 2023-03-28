@@ -4,7 +4,6 @@
   padding: 20px;
   gap: 10px;
   width: 200px;
- 
 }
 
 .submenuWrapper {
@@ -18,14 +17,14 @@ a {
   text-decoration: none;
   color: #64748b;
 }
-.dashMenu{
+.dashMenu {
   display: flex;
 }
 .dashImg {
   padding-right: 10px;
   object-fit: contain;
 }
-.chevron{
+.chevron {
   padding: 7px 0 0 50px;
   object-fit: contain;
 }

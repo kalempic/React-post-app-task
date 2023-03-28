@@ -1,44 +1,45 @@
-.cancelCreateBtn, .saveBtn{
-    border: none;
-    padding: 10px 30px;
-    border-radius: 10px;
-    color: #64748B;;
-    
+.cancelCreateBtn,
+.saveBtn {
+  border: none;
+  padding: 10px 30px;
+  border-radius: 10px;
+  color: #64748b;
 }
-.saveBtn{
-background-color: #0EA5E9;
-color: white;
+.saveBtn {
+  background-color: #0ea5e9;
+  color: white;
 }
-.editCreateField{
-    display: block;
-    max-width: 900px;
-    margin:0 auto;
+.editCreateField {
+  display: block;
+  max-width: 900px;
+  margin: 0 auto;
 }
-.btnCreateGroup{
-    display: flex;
-    flex-direction:row;
-    justify-content: flex-end;
-    gap: 20px;
-    padding: 40px 0px;
+.btnCreateGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 40px 0px;
 }
-.createTitle{
-    display: flex;
-    margin-bottom: 40px;
-    color:#64748B;
+.createTitle {
+  display: flex;
+  margin-bottom: 40px;
+  color: #64748b;
 }
-.editCreateInput, .contentCreateInput{
-    width: 100%;
-    overflow: hidden;
-    background-color: white;
-    border: 1px solid #CBD5E1;
-    color:#64748B; ;
-    border-radius:5px ;
+.editCreateInput,
+.contentCreateInput {
+  width: 100%;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid #cbd5e1;
+  color: #64748b;
+  border-radius: 5px;
 }
-.createContent{
-    display: flex;
-    color:#64748B; ;
+.createContent {
+  display: flex;
+  color: #64748b;
 }
 
-label{
-    min-width:100px;
+label {
+  min-width: 100px;
 }

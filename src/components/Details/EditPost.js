@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Modal from "../../components/Modal/Modal";
 import axiosInstance from "../../axios/axios";
-import classes from "./EditPost.module.css"
+import classes from "./EditPost.module.css";
 
 const EditPost = (props) => {
   const [postTitle, setPostTitle] = useState("");
@@ -39,7 +39,7 @@ const EditPost = (props) => {
         <div className={classes.title}>
           <label>Title:</label>
           <input
-          className={classes.editInput}
+            className={classes.editInput}
             value={postTitle ? postTitle : ""}
             onChange={(event) => setPostTitle(event.target.value)}
             type="text"
@@ -48,16 +48,24 @@ const EditPost = (props) => {
         <div className={classes.content}>
           <label>Content:</label>
           <textarea
-          className={classes.contentInput}
+            className={classes.contentInput}
             value={postContent ? postContent : ""}
             type="text"
             onChange={(event) => setPostContent(event.target.value)}
-            rows="8" cols="50"
+            rows="8"
+            cols="50"
           ></textarea>
         </div>
         <div className={classes.btnGroup}>
-        <button className={classes.cancelBtn} onClick={props.onClose}>Cancel</button>
-        <button className={classes.editBtn} onClick={(event) => savePost(event)}>Edit post</button>
+          <button className={classes.cancelBtn} onClick={props.onClose}>
+            Cancel
+          </button>
+          <button
+            className={classes.editBtn}
+            onClick={(event) => savePost(event)}
+          >
+            Edit post
+          </button>
         </div>
       </form>
     </Modal>

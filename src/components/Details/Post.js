@@ -8,8 +8,18 @@ const Post = (props) => {
       <td>
         {" "}
         <div className={classes.managePost}>
-          <button className={classes.edit} onClick={() => props.onSetEditPostID(props.id)}>Edit</button>
-          <button className={classes.delete} onClick={() => props.onDelete(props.id)}>Delete</button>
+          <button
+            className={classes.edit}
+            onClick={() => props.onSetEditPostID(props.id)}
+          >
+            Edit
+          </button>
+          <button
+            className={classes.delete}
+            onClick={() => props.onDelete(props.id)}
+          >
+            Delete
+          </button>
         </div>
       </td>
     </tr>
