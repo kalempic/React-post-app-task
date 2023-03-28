@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Modal from "../../components/Modal/Modal";
 import axiosInstance from "../../axios/axios";
 import classes from "./EditPost.module.css";
+import { NotificationManager, NotificationContainer } from "react-notifications";
+import 'react-notifications/lib/notifications.css';
 
 const EditPost = (props) => {
   const [postTitle, setPostTitle] = useState("");
@@ -18,6 +20,8 @@ const EditPost = (props) => {
       title: postTitle,
       body: postContent,
     };
+    NotificationManager.success("Success message", "You edited post");
+
     const response = await axiosInstance.put(
       `posts/${props.postID}`,
       postObject
@@ -62,7 +66,8 @@ const EditPost = (props) => {
           </button>
           <button
             className={classes.editBtn}
-            onClick={(event) => savePost(event)}
+            onClick={(event) => savePost(event)
+            }
           >
             Edit post
           </button>

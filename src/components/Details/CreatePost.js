@@ -3,6 +3,11 @@ import { useLocation } from "react-router-dom";
 import Modal from "../../components/Modal/Modal";
 import axiosInstance from "../../axios/axios";
 import classes from "./CreatePost.module.css";
+import {
+  NotificationManager,
+  NotificationContainer,
+} from "react-notifications";
+import "react-notifications/lib/notifications.css";
 
 const CreatePost = (props) => {
   const location = useLocation();
@@ -16,6 +21,7 @@ const CreatePost = (props) => {
       body: postContent,
       userId: location.state.userId,
     };
+    NotificationManager.success('Success message', 'You created new post');
     const response = await axiosInstance.post("/posts", postObject);
     setPostTitle("");
     setPostContent("");
