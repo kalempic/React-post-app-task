@@ -26,9 +26,14 @@ const EditPost = (props) => {
       `posts/${props.postID}`,
       postObject
     );
+
+    props.setPosts(prevState => {
+      console.log(prevState.find(post => post.id === props.postID));
+      prevState.find(post => post.id === props.postID).title = postTitle
+      return prevState;
+    })
     setPostTitle("");
     setPostContent("");
-    console.log(response);
     props.onClose();
   };
 

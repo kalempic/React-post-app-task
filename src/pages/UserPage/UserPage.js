@@ -7,6 +7,10 @@ import Todos from "../../components/Todo/Todos";
 import CreatePost from "../../components/Details/CreatePost";
 import EditPost from "../../components/Details/EditPost";
 import classes from "./UserPage.module.css";
+import {
+  NotificationManager,
+  NotificationContainer,
+} from "react-notifications";
 
 const UserPage = () => {
   const [userDetails, setUserDetails] = useState();
@@ -23,7 +27,6 @@ const UserPage = () => {
       `users/${location.state.userId}`
     );
     setUserDetails(responseUserDetail.data);
-    console.log(responseUserDetail);
   };
 
   const getPosts = async () => {
@@ -32,7 +35,6 @@ const UserPage = () => {
       `posts/?userId=${location.state.userId}`
     );
     setPosts(responsePosts.data);
-    console.log(responsePosts);
   };
   const getTodos = async () => {
     if (!location.state) return;
@@ -40,7 +42,6 @@ const UserPage = () => {
       `todos/?userId=${location.state.userId}`
     );
     setTodos(responseTodos.data);
-    console.log(responseTodos);
   };
 
   const showModalHandler = () => {
@@ -60,6 +61,17 @@ const UserPage = () => {
     setIsEditOpen(true);
   };
 
+  const handleDelete = async (deletedPostID) => {
+    await axiosInstance.delete(`posts/${deletedPostID}`);
+    const newPostsState = posts.filter((post) => post.id !== deletedPostID);
+    setPosts(newPostsState);
+    NotificationManager.warning('Warning message', 'You deleted post', 3000);
+  };
+
+  const createPost = (newPost) => {
+    setPosts(prevState => [newPost, ...prevState]);
+  }
+
   useEffect(() => {
     getUserDetails();
     getPosts();
@@ -71,16 +83,17 @@ const UserPage = () => {
     <div className={classes.centerContent}>
       <div className="wrapperUser">
         {userDetails && <UserDetails user={userDetails} />}
-        {posts && <Posts posts={posts} onSetEditPostID={editPostIDHandler} />}
+        {posts && <Posts posts={posts} onSetEditPostID={editPostIDHandler} onDelete={handleDelete}/>}
         <button className={classes.button} onClick={showModalHandler}>
           Create post
         </button>
         {todos && <Todos todos={todos} />}
-        {isOpen && <CreatePost onClose={hideModalHandler} />}
+        {isOpen && <CreatePost onClose={hideModalHandler} createPost={createPost} />}
         {isEdit && editPostID && (
-          <EditPost onClose={hideEditModalHandler} postID={editPostID} />
+          <EditPost onClose={hideEditModalHandler} postID={editPostID} setPosts={setPosts} />
         )}
       </div>
+      <NotificationContainer />
     </div>
   );
 };

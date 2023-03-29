@@ -3,10 +3,7 @@ import classes from "./Posts.module.css";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import axiosInstance from "../../axios/axios";
-import {
-  NotificationManager,
-  NotificationContainer,
-} from "react-notifications";
+
 import "react-notifications/lib/notifications.css";
 
 const Posts = (props) => {
@@ -21,14 +18,8 @@ const Posts = (props) => {
   useEffect(() => {
     getPostsList();
     //eslint-disable-next-line
-  }, []);
+  }, [props.posts]);
 
-  const handleDelete = async (deletedPostID) => {
-    await axiosInstance.delete(`posts/${deletedPostID}`);
-    const newPostsState = postsList.filter((post) => post.id !== deletedPostID);
-    setPostsList(newPostsState);
-    NotificationManager.warning('Warning message', 'You deleted post', 3000);
-  };
   return (
     <div>
       <table className={classes.tablePosts}>
@@ -46,13 +37,12 @@ const Posts = (props) => {
                 key={post.id}
                 id={post.id}
                 title={post.title}
-                onDelete={handleDelete}
+                onDelete={props.onDelete}
                 onSetEditPostID={props.onSetEditPostID}
               />
             ))}
         </tbody>
       </table>
-      <NotificationContainer />
     </div>
   );
 };

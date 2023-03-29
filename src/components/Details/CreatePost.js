@@ -17,15 +17,18 @@ const CreatePost = (props) => {
     if (!location.state) return;
     event.preventDefault();
     const postObject = {
+      id: Math.random(),
       title: postTitle,
       body: postContent,
       userId: location.state.userId,
     };
     NotificationManager.success('Success message', 'You created new post');
     const response = await axiosInstance.post("/posts", postObject);
+
+    props.createPost(postObject);
+
     setPostTitle("");
     setPostContent("");
-    console.log(response);
     props.onClose();
   };
 

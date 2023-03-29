@@ -1,7 +1,6 @@
 import classes from "./User.module.css";
 
 const User = ({ id, name, email, onClick }) => {
-  console.log(onClick);
   return (
     <tr className={classes.row} onClick={onClick}>
       <td>{id}</td>
