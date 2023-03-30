@@ -1,17 +1,29 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, {useContext} from "react";
+import { useNavigate} from "react-router-dom";
 import logoImage from "../../assets/vector.png";
 import avatarImg from "../../assets/avatar.png";
 import classes from "./Header.module.css";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { AiOutlineSearch } from "react-icons/ai";
 import SearchBar from "../SearchBar/SearchBar";
+import {googleLogout} from "@react-oauth/google";
+import { AuthContext } from "../../store/auth-context";
 
 const Header = (props) => {
   const navigation = useNavigate();
   const navigateToHome = () => {
     navigation(`/`);
   };
+  const authContext = useContext(AuthContext);
+  const navigate = useNavigate();
+  const logOut = async () => {
+      await googleLogout();
+
+      authContext.setIsLoggedIn(false);
+      console.log(authContext.isLoggedIn);
+      navigate('/login');
+  };
+
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
@@ -27,7 +39,8 @@ const Header = (props) => {
           <IoNotificationsOutline size={"28px"} />
         </div>
         <img src={avatarImg} alt="User logo" />
-        <h3>Digital Creative</h3>
+        <h3>Digital</h3>
+        <button className={classes.googleLogout} onClick={logOut}>Log out</button>
       </div>
     </header>
   );

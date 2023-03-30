@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useState, useContext  } from "react";
+import { useLocation} from "react-router-dom";
 import Modal from "../../components/Modal/Modal";
 import axiosInstance from "../../axios/axios";
 import classes from "./CreatePost.module.css";
@@ -8,11 +8,13 @@ import {
   NotificationContainer,
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
+import { UserContext } from "../../store/user-context";
 
 const CreatePost = (props) => {
   const location = useLocation();
   const [postTitle, setPostTitle] = useState("");
   const [postContent, setPostContent] = useState("");
+  const userContext = useContext(UserContext);
   const savePost = async (event) => {
     if (!location.state) return;
     event.preventDefault();

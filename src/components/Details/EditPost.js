@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Modal from "../../components/Modal/Modal";
 import axiosInstance from "../../axios/axios";
 import classes from "./EditPost.module.css";
 import { NotificationManager, NotificationContainer } from "react-notifications";
 import 'react-notifications/lib/notifications.css';
+import { UserContext } from "../../store/user-context";
 
 const EditPost = (props) => {
   const [postTitle, setPostTitle] = useState("");
   const [postContent, setPostContent] = useState("");
+  const userContext = useContext(UserContext);
   const getPost = async () => {
     const response = await axiosInstance.get(`posts/${props.postID}`);
     setPostTitle(response.data.title);

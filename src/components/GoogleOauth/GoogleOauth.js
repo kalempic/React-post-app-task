@@ -4,6 +4,7 @@ import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { AuthContext } from "../../store/auth-context";
 import {useNavigate} from "react-router-dom";
+import classes from "./GoogleOauth.module.css"
 
 
    
@@ -47,10 +48,9 @@ import {useNavigate} from "react-router-dom";
         };
     
         return (
-            <div>
-                <h2>React Google Login</h2>
-                <br />
-                <br />
+            <div className={classes.googleForm}>
+                <h2>Laravel Login</h2>
+                <h3>Hello, please sign in to see more info</h3>
                 {profile ? (
                     <div>
                         <img src={profile.picture} alt="user image" />
@@ -62,7 +62,7 @@ import {useNavigate} from "react-router-dom";
                         <button onClick={logOut}>Log out</button>
                     </div>
                 ) : (
-                    <button onClick={() => login()}>Sign in with Google 🚀 </button>
+                    <button className={classes.googleBtn} onClick={() => login()}>Sign in with Google 🚀 </button>
                 )}
             </div>
         );
