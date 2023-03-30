@@ -9,7 +9,7 @@ import {useNavigate} from "react-router-dom";
    
     function GoogleOauth(props) {
         const [ user, setUser ] = useState([]);
-        const [ profile, setProfile ] = useState([]);
+        const [ profile, setProfile ] = useState(null);
 
         const authContext = useContext(AuthContext);
         const navigate = useNavigate();
