@@ -73,18 +73,18 @@ const UserPage = () => {
   //ovde definises-izvuces
 
   useEffect(() => {
-    if(!location.state.userid) return;
-    userContext.getUserTodosAndPosts(location.state.userid);
+    if(!location.state.userId) return;    
+    userContext.getUserTodosAndPosts(location.state.userId);
     // eslint-disable-next-line
   }, []);
 
   return (
     <div className={classes.centerContent}>
       <div className="wrapperUser">
-        {userContext.userDetails && <UserDetails user={userDetails} />}
+        {userContext.user && <UserDetails user={userContext.user} />}
         {userContext.posts && (
           <Posts
-            posts={posts}
+            posts={userContext.posts}
             onSetEditPostID={editPostIDHandler}
             onDelete={handleDelete}
           />
@@ -92,11 +92,11 @@ const UserPage = () => {
         <button className={classes.button} onClick={showModalHandler}>
           Create post
         </button>
-        {userContext.todos && <Todos todos={todos} />}
-        {userContext.isOpen && (
+        {userContext.todos && <Todos todos={userContext.todos} />}
+        {isOpen && (
           <CreatePost onClose={hideModalHandler} createPost={createPost} />
         )}
-        {userContext.isEdit && editPostID && (
+        {isEdit && editPostID && (
           <EditPost
             onClose={hideEditModalHandler}
             postID={editPostID}

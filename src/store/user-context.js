@@ -13,7 +13,6 @@ const UserProvider = ({children}) => {
     // const location = useLocation();
     const getUserTodosAndPosts=async (userId) => {
         const responseUserDetail = await axiosInstance.get(`users/${userId}`);
-        console.log(responseUserDetail)
         const responsePosts = await axiosInstance.get(`posts/?userId=${userId}`);
         const responseTodos= await axiosInstance.get(`todos/?userId=${userId}`);
         setUser(responseUserDetail.data);

@@ -29,9 +29,8 @@ const EditPost = (props) => {
       postObject
     );
 
-    props.setPosts(prevState => {
-      console.log(prevState.find(post => post.id === props.postID));
-      prevState.find(post => post.id === props.postID).title = postTitle
+    userContext.setPosts(prevState => {
+      prevState.find(post => post.id === props.postID).title = postTitle;
       return prevState;
     })
     setPostTitle("");
