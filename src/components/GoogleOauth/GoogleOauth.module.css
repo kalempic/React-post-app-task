@@ -1,0 +1,17 @@
+.googleForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 0 auto;
+  background-color: #5c646524;
+  border-radius: 20px;
+  padding: 30px;
+  position: fixed;
+  top: 35vh;
+  left: 25%;
+  width: 50%;
+}
+.googleBtn {
+  padding: 10px;
+}

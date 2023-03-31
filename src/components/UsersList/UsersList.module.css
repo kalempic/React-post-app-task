@@ -1,0 +1,20 @@
+.tab {
+  width: 100%;
+  background-color: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  color: #64748b;
+  cursor: pointer;
+}
+th,
+td {
+  padding: 10px 70px;
+  border-bottom: 1px solid #cbd5e1;
+  text-align: left;
+}
+
+.user {
+  display: flex;
+  margin-bottom: 10px;
+  position: relative;
+}

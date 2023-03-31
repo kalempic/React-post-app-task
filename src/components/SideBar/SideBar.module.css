@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.submenuWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: #64748b;
+}
+.dashMenu {
+  display: flex;
+}
+.dashImg {
+  padding-right: 10px;
+  object-fit: contain;
+}
+.chevron {
+  padding: 7px 0 0 50px;
+  object-fit: contain;
+}
