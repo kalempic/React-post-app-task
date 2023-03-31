@@ -1,9 +1,9 @@
-import { useEffect, useState,useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import axiosInstance from "../../axios/axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import UsersList from "../../components/UsersList/UsersList";
 import { AuthContext } from "../../store/auth-context";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import classes from "./MainPage.module.css";
 
 const MainPage = () => {
@@ -19,7 +19,7 @@ const MainPage = () => {
 
   useEffect(() => {
     getAllUsers();
-    !authCtx.isLoggedIn && navigate('/login');
+    !authCtx.isLoggedIn && navigate("/login");
     // eslint-disable-next-line
   }, []);
 
@@ -29,7 +29,10 @@ const MainPage = () => {
 
   return (
     <div className="wrapper">
-    <img className={classes.cardsImg} src={require('../../assets/Cards.png')}/>
+      <img
+        className={classes.cardsImg}
+        src={require("../../assets/Cards.png")}
+      />
       <div className={classes.userWrap}>
         <h2>Users</h2>
         <SearchBar getSearchTerm={getSearchTerm} />

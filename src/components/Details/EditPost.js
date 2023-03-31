@@ -2,8 +2,8 @@ import { useState, useEffect, useContext } from "react";
 import Modal from "../../components/Modal/Modal";
 import axiosInstance from "../../axios/axios";
 import classes from "./EditPost.module.css";
-import { NotificationManager, NotificationContainer } from "react-notifications";
-import 'react-notifications/lib/notifications.css';
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
 import { UserContext } from "../../store/user-context";
 
 const EditPost = (props) => {
@@ -29,10 +29,10 @@ const EditPost = (props) => {
       postObject
     );
 
-    userContext.setPosts(prevState => {
-      prevState.find(post => post.id === props.postID).title = postTitle;
+    userContext.setPosts((prevState) => {
+      prevState.find((post) => post.id === props.postID).title = postTitle;
       return prevState;
-    })
+    });
     setPostTitle("");
     setPostContent("");
     props.onClose();
@@ -72,8 +72,7 @@ const EditPost = (props) => {
           </button>
           <button
             className={classes.editBtn}
-            onClick={(event) => savePost(event)
-            }
+            onClick={(event) => savePost(event)}
           >
             Edit post
           </button>

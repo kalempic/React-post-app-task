@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import User from "../User/User";
-
 import classes from "./UsersList.module.css";
 
 const UsersList = ({ users, searchTerm }) => {

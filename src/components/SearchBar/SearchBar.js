@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import classes from "./SearchBar.module.css";
 
 const SearchBar = ({ button, getSearchTerm }) => {

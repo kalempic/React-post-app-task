@@ -4,6 +4,7 @@
   padding: 20px;
   gap: 10px;
   width: 200px;
+  cursor: pointer;
 }
 
 .submenuWrapper {

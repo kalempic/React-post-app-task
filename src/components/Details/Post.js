@@ -1,4 +1,3 @@
-import { NotificationContainer } from "react-notifications";
 import classes from "./Posts.module.css";
 
 const Post = (props) => {
@@ -17,7 +16,7 @@ const Post = (props) => {
           </button>
           <button
             className={classes.delete}
-            onClick={() => props.onDelete(props.id)}      
+            onClick={() => props.onDelete(props.id)}
           >
             Delete
           </button>

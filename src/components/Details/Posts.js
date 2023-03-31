@@ -2,8 +2,6 @@ import Post from "./Post";
 import classes from "./Posts.module.css";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import axiosInstance from "../../axios/axios";
-
 import "react-notifications/lib/notifications.css";
 
 const Posts = (props) => {

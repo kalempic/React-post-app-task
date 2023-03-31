@@ -1,12 +1,9 @@
-import { useState, useContext  } from "react";
-import { useLocation} from "react-router-dom";
+import { useState, useContext } from "react";
+import { useLocation } from "react-router-dom";
 import Modal from "../../components/Modal/Modal";
 import axiosInstance from "../../axios/axios";
 import classes from "./CreatePost.module.css";
-import {
-  NotificationManager,
-  NotificationContainer,
-} from "react-notifications";
+import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { UserContext } from "../../store/user-context";
 
@@ -19,16 +16,14 @@ const CreatePost = (props) => {
     if (!location.state) return;
     event.preventDefault();
     const postObject = {
-      id: Math.random(),
+      id: Math.round( Math.random()*100 ),
       title: postTitle,
       body: postContent,
       userId: location.state.userId,
     };
-    NotificationManager.success('Success message', 'You created new post');
+    NotificationManager.success("Success message", "You created new post");
     const response = await axiosInstance.post("/posts", postObject);
-
     props.createPost(postObject);
-
     setPostTitle("");
     setPostContent("");
     props.onClose();
