@@ -17,9 +17,7 @@ const Header = (props) => {
   const navigate = useNavigate();
   const logOut = async () => {
     await googleLogout();
-
     authContext.setIsLoggedIn(false);
-    console.log(authContext.isLoggedIn);
     navigate("/login");
   };
 

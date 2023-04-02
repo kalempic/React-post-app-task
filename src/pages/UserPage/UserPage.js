@@ -11,9 +11,6 @@ import {NotificationManager, NotificationContainer} from "react-notifications";
 import { UserContext } from "../../store/user-context";
 
 const UserPage = () => {
-  const [userDetails, setUserDetails] = useState();
-  const [posts, setPosts] = useState();
-  const [todos, setTodos] = useState();
   const [isOpen, setIsOpen] = useState(false);
   const [isEdit, setIsEditOpen] = useState(false);
   const [editPostID, setEditPostID] = useState();
@@ -62,7 +59,6 @@ const UserPage = () => {
         {userContext.user && <UserDetails user={userContext.user} />}
         {userContext.posts && (
           <Posts
-            posts={userContext.posts}
             onSetEditPostID={editPostIDHandler}
             onDelete={handleDelete}
           />
@@ -70,7 +66,7 @@ const UserPage = () => {
         <button className={classes.button} onClick={showModalHandler}>
           Create post
         </button>
-        {userContext.todos && <Todos todos={userContext.todos} />}
+        {userContext.todos && <Todos/>}
         {isOpen && (
           <CreatePost onClose={hideModalHandler} createPost={createPost} />
         )}
@@ -78,7 +74,6 @@ const UserPage = () => {
           <EditPost
             onClose={hideEditModalHandler}
             postID={editPostID}
-            setPosts={setPosts}
           />
         )}
       </div>

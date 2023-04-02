@@ -1,22 +1,11 @@
 import Post from "./Post";
 import classes from "./Posts.module.css";
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useContext } from "react";
 import "react-notifications/lib/notifications.css";
+import { UserContext } from "../../store/user-context";
 
 const Posts = (props) => {
-  const [postsList, setPostsList] = useState();
-  const location = useLocation();
-
-  const getPostsList = async () => {
-    if (!location.state) return;
-    setPostsList(props.posts);
-  };
-
-  useEffect(() => {
-    getPostsList();
-    //eslint-disable-next-line
-  }, [props.posts]);
+  const userContext = useContext(UserContext);
 
   return (
     <div>
@@ -29,8 +18,8 @@ const Posts = (props) => {
           </tr>
         </thead>
         <tbody>
-          {postsList &&
-            postsList.map((post) => (
+          {userContext.posts &&
+            userContext.posts.map((post) => (
               <Post
                 key={post.id}
                 id={post.id}

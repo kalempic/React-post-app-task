@@ -6,7 +6,6 @@ const Post = (props) => {
       <td>{props.id}</td>
       <td>{props.title}</td>
       <td>
-        {" "}
         <div className={classes.managePost}>
           <button
             className={classes.edit}

@@ -18,8 +18,8 @@ const MainPage = () => {
   };
 
   useEffect(() => {
-    getAllUsers();
     !authCtx.isLoggedIn && navigate("/login");
+    getAllUsers();
     // eslint-disable-next-line
   }, []);
 

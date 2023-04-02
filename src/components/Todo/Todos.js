@@ -1,18 +1,11 @@
 import { useState, useEffect } from "react";
 import Todo from "./Todo";
 import classes from "./Todos.module.css";
+import { useContext } from "react";
+import { UserContext } from "../../store/user-context";
 
 const Todos = (props) => {
-  const [todosList, setTodosList] = useState();
-
-  const getTodosList = async () => {
-    setTodosList(props.todos);
-  };
-
-  useEffect(() => {
-    getTodosList();
-    // eslint-disable-next-line
-  }, []);
+  const userContext = useContext(UserContext);
 
   return (
     <table className={classes.todoTable}>
@@ -24,8 +17,8 @@ const Todos = (props) => {
         </tr>
       </thead>
       <tbody>
-        {todosList &&
-          todosList.map((todo) => (
+        {userContext.todos &&
+          userContext.todos.map((todo) => (
             <Todo
               key={todo.id}
               id={todo.id}

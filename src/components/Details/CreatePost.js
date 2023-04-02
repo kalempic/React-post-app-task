@@ -21,8 +21,12 @@ const CreatePost = (props) => {
       body: postContent,
       userId: location.state.userId,
     };
-    NotificationManager.success("Success message", "You created new post");
     const response = await axiosInstance.post("/posts", postObject);
+    if(response.request.status === 201){
+      NotificationManager.success("Success message", "You created new post");
+    } else {
+      NotificationManager.error("Error message", "Post creation failed!");
+    }
     props.createPost(postObject);
     setPostTitle("");
     setPostContent("");
