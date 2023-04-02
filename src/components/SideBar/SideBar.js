@@ -1,5 +1,6 @@
 import { useState } from "react";
 import classes from "./SideBar.module.css";
+import dashImage from "../../assets/dashboardpic.png"
 
 const SideBar = (props) => {
   const [openDashboardSubmenu, setOpenDashboardSubmenu] = useState(false);
@@ -13,7 +14,7 @@ const SideBar = (props) => {
       >
         <img
           className={classes.dashImg}
-          src={require("../../assets/dashboardpic.png")}
+          src={dashImage}
           alt="dash icon"
         />
         <a>Dashboard</a>

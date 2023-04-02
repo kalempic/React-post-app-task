@@ -19,7 +19,7 @@
   align-items: center;
   gap: 10px;
 }
-.laravel:hover {
+.laravel{
   cursor: pointer;
 }
 .username {
