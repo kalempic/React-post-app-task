@@ -24,7 +24,7 @@ const EditPost = (props) => {
       title: postTitle,
       body: postContent,
     };
-    NotificationManager.success("Success message", "You edited post");
+    // NotificationManager.success("Success message", "You edited post");
 
     const response = await axiosInstance.put(
       `posts/${props.postID}`,
@@ -39,7 +39,7 @@ const EditPost = (props) => {
     setPostContent("");
     props.onClose();
     if(response.request.status === 200){
-      NotificationManager.success("Success message", "You created new post");
+      NotificationManager.success("Success message", "You edited new post");
     } else {
       NotificationManager.error("Error message", "Post creation failed!");
     }
