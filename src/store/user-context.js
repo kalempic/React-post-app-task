@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axiosInstance from "../axios/axios";
+import {axiosInstance} from "../axios/axios";
 
 const UserContext = React.createContext();
 

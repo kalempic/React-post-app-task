@@ -1,7 +1,7 @@
 import UserDetails from "../../components/Details/UserDetails";
 import Posts from "../../components/Details/Posts";
 import React, { useEffect, useState, useContext } from "react";
-import axiosInstance from "../../axios/axios";
+import {axiosInstance} from "../../axios/axios";
 import { useLocation } from "react-router-dom";
 import Todos from "../../components/Todo/Todos";
 import CreatePost from "../../components/Details/CreatePost";

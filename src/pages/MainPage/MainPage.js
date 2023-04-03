@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import axiosInstance from "../../axios/axios";
+import {axiosInstance} from "../../axios/axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import UsersList from "../../components/UsersList/UsersList";
 import { AuthContext } from "../../store/auth-context";

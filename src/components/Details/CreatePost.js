@@ -1,7 +1,7 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Modal from "../../components/Modal/Modal";
-import axiosInstance from "../../axios/axios";
+import {axiosInstance} from "../../axios/axios";
 import classes from "./CreatePost.module.css";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
@@ -11,6 +11,7 @@ const CreatePost = (props) => {
   const location = useLocation();
   const [postTitle, setPostTitle] = useState("");
   const [postContent, setPostContent] = useState("");
+  const postContentRef = useRef(null);
   const userContext = useContext(UserContext);
   const savePost = async (event) => {
     if (!location.state) return;
@@ -18,9 +19,10 @@ const CreatePost = (props) => {
     const postObject = {
       id: Math.round( Math.random()*100 ),
       title: postTitle,
-      body: postContent,
+      body: postContentRef.current.value,
       userId: location.state.userId,
     };
+    console.log(postContentRef)
     const response = await axiosInstance.post("/posts", postObject);
     if(response.request.status === 201){
       NotificationManager.success("Success message", "You created new post");
@@ -32,6 +34,9 @@ const CreatePost = (props) => {
     setPostContent("");
     props.onClose();
   };
+
+  useEffect(()=>{
+  },[postContentRef])
 
   return (
     <Modal onClose={props.onClose}>
@@ -47,6 +52,7 @@ const CreatePost = (props) => {
         <div className={classes.createContent}>
           <label>Content</label>
           <textarea
+            ref={postContentRef}
             className={classes.contentCreateInput}
             type="text"
             onChange={(event) => setPostContent(event.target.value)}

@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import Modal from "../../components/Modal/Modal";
-import axiosInstance from "../../axios/axios";
+import {axiosInstance} from "../../axios/axios";
 import classes from "./EditPost.module.css";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
