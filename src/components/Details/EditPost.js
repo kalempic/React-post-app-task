@@ -11,9 +11,11 @@ const EditPost = (props) => {
   const [postContent, setPostContent] = useState("");
   const userContext = useContext(UserContext);
   const getPost = async () => {
-    const response = await axiosInstance.get(`posts/${props.postID}`);
+    const response = await axiosInstance.get(`posts/${props.postID}`);   
+   console.log(response.data)
     setPostTitle(response.data.title);
     setPostContent(response.data.body);
+  
   };
 
   const savePost = async (event) => {
@@ -36,6 +38,11 @@ const EditPost = (props) => {
     setPostTitle("");
     setPostContent("");
     props.onClose();
+    if(response.request.status === 200){
+      NotificationManager.success("Success message", "You created new post");
+    } else {
+      NotificationManager.error("Error message", "Post creation failed!");
+    }
   };
 
   useEffect(() => {

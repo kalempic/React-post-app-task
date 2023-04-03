@@ -11,7 +11,7 @@ import "./index.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <GoogleOAuthProvider clientId={`${process.env.REACT_APP_GOOGLE}`}>
-    <React.StrictMode>
+   
       <AuthProvider>
         <UserProvider>
           <BrowserRouter>
@@ -19,6 +19,6 @@ root.render(
           </BrowserRouter>
         </UserProvider>
       </AuthProvider>
-    </React.StrictMode>
+   
   </GoogleOAuthProvider>
 );
