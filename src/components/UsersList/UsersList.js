@@ -1,22 +1,21 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useState } from "react-router-dom";
 import User from "../User/User";
 import classes from "./UsersList.module.css";
 
 const UsersList = ({ users, searchTerm }) => {
   const navigation = useNavigate();
-
+  // const [filteredUsers, setFilteredUsers] = useState();
   const navigateToUser = (userId) => {
     console.log(userId);
     navigation(`user/${userId}`, { state: { userId: userId } });
   };
 
+// const showFillteredUsers=()=>{};
+
   const renderUsers = () => {
     return (
       users &&
       users
-        .filter((item) =>
-          item.name.toLowerCase().startsWith(searchTerm.toLowerCase())
-        )
         .map(({ id, name, email }) => (
           <User
             key={id}

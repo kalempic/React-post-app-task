@@ -9,11 +9,13 @@ import classes from "./MainPage.module.css";
 const MainPage = () => {
   const authCtx = useContext(AuthContext);
   const navigate = useNavigate();
-  const [users, setUsers] = useState();
-  const [searchTerm, setSearchTerm] = useState("");
+  const [users, setUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState([]);
+  // const [searchTerm, setSearchTerm] = useState("");
   const getAllUsers = async () => {
     const response = await axiosInstance.get("/users");
     setUsers(response.data);
+    setFilteredUsers(response.data);
   };
   useEffect(() => {
     !authCtx.isLoggedIn && navigate("/login");
@@ -21,8 +23,10 @@ const MainPage = () => {
     // eslint-disable-next-line
   }, []);
 
-  const getSearchTerm = (search) => {
-    setSearchTerm(search);
+  const getSearchTerm = (searchTerm) => {
+    setFilteredUsers(users.filter((item) =>
+        item.name.toLowerCase().startsWith(searchTerm.toLowerCase())
+    ));
   };
 
   return (
@@ -34,7 +38,7 @@ const MainPage = () => {
       <div className={classes.userWrap}>
         <h2>Users</h2>
         <SearchBar getSearchTerm={getSearchTerm} />
-        <UsersList users={users} searchTerm={searchTerm} />
+        <UsersList users={filteredUsers} />
       </div>
     </div>
   );
