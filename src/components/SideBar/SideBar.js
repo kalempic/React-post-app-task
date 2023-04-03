@@ -1,42 +1,28 @@
-import { useState } from "react";
 import classes from "./SideBar.module.css";
-import dashImage from "../../assets/dashboardpic.png"
+import dashImage from "../../assets/dashboardpic.png";
 
 const SideBar = (props) => {
-  const [openDashboardSubmenu, setOpenDashboardSubmenu] = useState(false);
-  const [openResourcesSubmenu, setOpenResourcesSubmenu] = useState(false);
-
   return (
     <div className={classes.wrapper}>
-      <div
-        className={classes.dashMenu}
-        onClick={setOpenDashboardSubmenu.bind(this, !openDashboardSubmenu)}
-      >
-        <img
-          className={classes.dashImg}
-          src={dashImage}
-          alt="dash icon"
-        />
-        <a>Dashboard</a>
-      </div>
-      {openDashboardSubmenu && (
+      <div className={classes.showList}>
+        <div className={classes.dashMenu}>
+          <img className={classes.dashImg} src={dashImage} alt="dash icon" />
+          <a>Dashboard</a>
+        </div>
         <div className={classes.submenuWrapper}>
           <a href="#">Main</a>
           <a href="#">User Insights</a>
         </div>
-      )}
-      <div
-        className={classes.dashMenu}
-        onClick={setOpenResourcesSubmenu.bind(this, !openResourcesSubmenu)}
-      >
-        <img
-          className={classes.dashImg}
-          src={require("../../assets/resourcespic.png")}
-          alt="resource icon"
-        />
-        <a>Resources</a>
       </div>
-      {openResourcesSubmenu && (
+      <div className={classes.showList}>
+        <div className={classes.dashMenu}>
+          <img
+            className={classes.dashImg}
+            src={require("../../assets/resourcespic.png")}
+            alt="resource icon"
+          />
+          <a>Resources</a>
+        </div>
         <div className={classes.submenuWrapper}>
           <a href="#">Addresses</a>
           <a href="#">Comments</a>
@@ -46,7 +32,7 @@ const SideBar = (props) => {
           <a href="#">Tags</a>
           <a href="#">Users</a>
         </div>
-      )}
+      </div>
     </div>
   );
 };

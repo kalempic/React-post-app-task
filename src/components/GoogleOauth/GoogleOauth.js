@@ -5,30 +5,38 @@ import { AuthContext } from "../../store/auth-context";
 import { useNavigate } from "react-router-dom";
 import classes from "./GoogleOauth.module.css";
 import { googleAxiosInstance } from "../../axios/axios";
-import 'react-notifications/lib/notifications.css';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
-
+import "react-notifications/lib/notifications.css";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
 
 function GoogleOauth(props) {
   const [user, setUser] = useState();
   const [profile, setProfile] = useState(null);
-
   const authContext = useContext(AuthContext);
   const navigate = useNavigate();
-
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => {
       setUser(codeResponse);
       authContext.setIsLoggedIn(true);
       navigate("/");
     },
-    onError: (error) => NotificationManager.warning('Login Failed', 'Close after 3000ms', 3000)
-   
+    onError: (error) =>
+      NotificationManager.warning("Login Failed", "Close after 3000ms", 3000),
   });
-
   useEffect(() => {
     if (user) {
-      googleAxiosInstance.get(`=${user.access_token}`).then(res=>setProfile(res.data)).catch((err)=>NotificationManager.warning("Can't find the user", 'Close after 3000ms', 3000));
+      googleAxiosInstance
+        .get(`=${user.access_token}`)
+        .then((res) => setProfile(res.data))
+        .catch((err) =>
+          NotificationManager.warning(
+            "Can't find the user",
+            "Close after 3000ms",
+            3000
+          )
+        );
     }
   }, [user]);
 
@@ -36,7 +44,6 @@ function GoogleOauth(props) {
     googleLogout();
     setProfile(null);
   };
-
   return (
     <div className={classes.googleForm}>
       <h2>Laravel Login</h2>
@@ -56,7 +63,7 @@ function GoogleOauth(props) {
           Sign in with Google 🚀{" "}
         </button>
       )}
-      <NotificationContainer/>
+      <NotificationContainer />
     </div>
   );
 }

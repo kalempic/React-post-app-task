@@ -8,10 +8,7 @@
 }
 
 .submenuWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding-left: 30px;
+  display: none;
 }
 
 a {
@@ -20,6 +17,12 @@ a {
 }
 .dashMenu {
   display: flex;
+}
+.showList:hover .submenuWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 30px;
 }
 .dashImg {
   padding-right: 10px;

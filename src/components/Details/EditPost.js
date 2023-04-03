@@ -24,13 +24,10 @@ const EditPost = (props) => {
       title: postTitle,
       body: postContent,
     };
-    // NotificationManager.success("Success message", "You edited post");
-
     const response = await axiosInstance.put(
       `posts/${props.postID}`,
       postObject
     );
-
     userContext.setPosts((prevState) => {
       prevState.find((post) => post.id === props.postID).title = postTitle;
       return prevState;
@@ -44,7 +41,6 @@ const EditPost = (props) => {
       NotificationManager.error("Error message", "Post creation failed!");
     }
   };
-
   useEffect(() => {
     getPost();
     // eslint-disable-next-line
