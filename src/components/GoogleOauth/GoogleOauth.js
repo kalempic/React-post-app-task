@@ -5,6 +5,10 @@ import { AuthContext } from "../../store/auth-context";
 import { useNavigate } from "react-router-dom";
 import classes from "./GoogleOauth.module.css";
 import { googleAxiosInstance } from "../../axios/axios";
+import 'react-notifications/lib/notifications.css';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+
+
 function GoogleOauth(props) {
   const [user, setUser] = useState();
   const [profile, setProfile] = useState(null);
@@ -18,12 +22,13 @@ function GoogleOauth(props) {
       authContext.setIsLoggedIn(true);
       navigate("/");
     },
-    onError: (error) => console.log("Login Failed:", error),
+    onError: (error) => NotificationManager.warning('Login Failed', 'Close after 3000ms', 3000)
+   
   });
 
   useEffect(() => {
     if (user) {
-      googleAxiosInstance.get(`=${user.access_token}`).then(res=>setProfile(res.data)).catch(err=>console.log(err));
+      googleAxiosInstance.get(`=${user.access_token}`).then(res=>setProfile(res.data)).catch((err)=>NotificationManager.warning("Can't find the user", 'Close after 3000ms', 3000));
     }
   }, [user]);
 
@@ -51,6 +56,7 @@ function GoogleOauth(props) {
           Sign in with Google 🚀{" "}
         </button>
       )}
+      <NotificationContainer/>
     </div>
   );
 }
