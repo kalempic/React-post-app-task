@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import {axiosInstance} from "../../axios/axios";
+import { axiosInstance } from "../../axios/axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import UsersList from "../../components/UsersList/UsersList";
 import { AuthContext } from "../../store/auth-context";
@@ -13,10 +13,8 @@ const MainPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const getAllUsers = async () => {
     const response = await axiosInstance.get("/users");
-    // setUsers([...response.data, {id: 4242, name: 'Katarina', email: 'nesto@gmail.com'}]);
     setUsers(response.data);
   };
-
   useEffect(() => {
     !authCtx.isLoggedIn && navigate("/login");
     getAllUsers();

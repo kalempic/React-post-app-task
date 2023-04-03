@@ -20,7 +20,6 @@ const Header = (props) => {
     authContext.setIsLoggedIn(false);
     navigate("/login");
   };
-
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
@@ -30,7 +29,6 @@ const Header = (props) => {
         </div>
         <SearchBar />
       </div>
-
       <div className={classes.username}>
         <div className={classes.icon}>
           <IoNotificationsOutline size={"28px"} />

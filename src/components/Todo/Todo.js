@@ -1,6 +1,5 @@
-import trueImage from "../../assets/true.png"
-import falseImage from "../../assets/false.png"
-
+import trueImage from "../../assets/true.png";
+import falseImage from "../../assets/false.png";
 
 const Todo = (props) => {
   return (
@@ -8,11 +7,7 @@ const Todo = (props) => {
       <td>{props.id}</td>
       <td>{props.title}</td>
       <td>
-        {props.completed ? (
-          <img src={trueImage} />
-        ) : (
-          <img src={falseImage} />
-        )}
+        {props.completed ? <img src={trueImage} /> : <img src={falseImage} />}
       </td>
     </tr>
   );

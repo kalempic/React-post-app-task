@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import {axiosInstance} from "../axios/axios";
+import { axiosInstance } from "../axios/axios";
 
 const UserContext = React.createContext();
-
 const { Provider } = UserContext;
-
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [posts, setPosts] = useState();
   const [todos, setTodos] = useState();
-  // const location = useLocation();
   const getUserTodosAndPosts = async (userId) => {
     const responseUserDetail = await axiosInstance.get(`users/${userId}`);
     const responsePosts = await axiosInstance.get(`posts/?userId=${userId}`);

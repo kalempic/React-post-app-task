@@ -1,13 +1,16 @@
 import UserDetails from "../../components/Details/UserDetails";
 import Posts from "../../components/Details/Posts";
 import React, { useEffect, useState, useContext } from "react";
-import {axiosInstance} from "../../axios/axios";
+import { axiosInstance } from "../../axios/axios";
 import { useLocation } from "react-router-dom";
 import Todos from "../../components/Todo/Todos";
 import CreatePost from "../../components/Details/CreatePost";
 import EditPost from "../../components/Details/EditPost";
 import classes from "./UserPage.module.css";
-import {NotificationManager, NotificationContainer} from "react-notifications";
+import {
+  NotificationManager,
+  NotificationContainer,
+} from "react-notifications";
 import { UserContext } from "../../store/user-context";
 
 const UserPage = () => {
@@ -58,23 +61,17 @@ const UserPage = () => {
       <div className="wrapperUser">
         {userContext.user && <UserDetails user={userContext.user} />}
         {userContext.posts && (
-          <Posts
-            onSetEditPostID={editPostIDHandler}
-            onDelete={handleDelete}
-          />
+          <Posts onSetEditPostID={editPostIDHandler} onDelete={handleDelete} />
         )}
         <button className={classes.button} onClick={showModalHandler}>
           Create post
         </button>
-        {userContext.todos && <Todos/>}
+        {userContext.todos && <Todos />}
         {isOpen && (
           <CreatePost onClose={hideModalHandler} createPost={createPost} />
         )}
         {isEdit && editPostID && (
-          <EditPost
-            onClose={hideEditModalHandler}
-            postID={editPostID}
-          />
+          <EditPost onClose={hideEditModalHandler} postID={editPostID} />
         )}
       </div>
       <NotificationContainer />
