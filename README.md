@@ -1,0 +1,1 @@
+This is a project is React practise example. The goal is to use and fully inderstand React concepts. It is mini app for manage users, their posts and todo list using fake API (https://jsonplaceholder.typicode.com/).
